@@ -1,0 +1,45 @@
+#pragma once
+
+enum class SceneType
+{
+	Menu,
+	Game,
+	Loading,
+	Dev,
+	Count
+};
+
+enum LAYER_TYPE
+{
+	LAYER_BACKGROUND,
+	LAYER_OBJECT,
+	LAYER_UI,
+	LAYER_MAXCOUNT
+};
+
+enum class ColliderType
+{
+	Box,
+	Sphere,
+	Capsule,
+	Count
+};
+
+enum COLLISION_LAYER_TYPE : uint8
+{
+	COLLISION_LAYER_TYPE_OBJECT,
+	COLLISION_LAYER_TYPE_GROUND,
+	COLLISION_LAYER_TYPE_WALL,
+
+	COLLISION_LAYER_TYPE_MAXCOUNT
+};
+
+enum DIRECTION
+{
+	DIRECTION_NONE = -1,
+	DIRECTION_UP,
+	DIRECTION_DOWN,
+	DIRECTION_LEFT,
+	DIRECTION_RIGHT,
+	DIRECTION_MAXCOUNT
+};

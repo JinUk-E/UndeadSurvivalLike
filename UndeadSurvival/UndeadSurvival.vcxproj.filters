@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 코드">
+      <UniqueIdentifier>{89497265-a268-4ba2-9947-920254527565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\00.Game">
+      <UniqueIdentifier>{b9959274-587a-446f-9530-50a1687af509}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\01.Managers">
+      <UniqueIdentifier>{111ca824-e81d-41fb-8b84-5d9d599047e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\02.Scene">
+      <UniqueIdentifier>{2f3726e2-cd8c-48aa-ab07-fca59756393f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\03.Objects">
+      <UniqueIdentifier>{1da5a48b-c629-4b48-bebe-ebddf27c2061}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\04.Resources">
+      <UniqueIdentifier>{ea025c59-8288-4e64-9a4c-958d82565013}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\05.Component">
+      <UniqueIdentifier>{cbb17ca5-564d-4838-84dd-4a0090a6b9ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\06.UI">
+      <UniqueIdentifier>{be4f5641-4970-47d6-86ec-94fb0f0574ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\99.Headers">
+      <UniqueIdentifier>{4986f27d-8eb7-489a-b995-d2e9390d5fc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\99.Headers\OriginHeader">
+      <UniqueIdentifier>{3ba71099-86a2-444e-a753-42edc6318186}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>소스 코드\99.Headers\OriginHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>소스 코드\99.Headers\OriginHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>소스 코드\99.Headers\OriginHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="UndeadSurvival.h">
+      <Filter>소스 코드\00.Game</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>소스 코드\99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>소스 코드\99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>소스 코드\99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>소스 코드\99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Values.h">
+      <Filter>소스 코드\99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>소스 코드\99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameModule.h">
+      <Filter>소스 코드\00.Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UndeadSurvival.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="UndeadSurvival.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="UndeadSurvival.cpp">
+      <Filter>소스 코드\00.Game</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>소스 코드\99.Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>소스 코드\99.Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="GameModule.cpp">
+      <Filter>소스 코드\00.Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>소스 코드\01.Managers</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
