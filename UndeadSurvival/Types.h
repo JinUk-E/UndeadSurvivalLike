@@ -132,5 +132,5 @@ struct Vector2Int
 	int32 Cross(const Vector2Int& others){return X * others.Y - Y * others.X;}
 };
 
-using Postion = Vector2;
+using Position = Vector2;
 using PosInt = Vector2Int;

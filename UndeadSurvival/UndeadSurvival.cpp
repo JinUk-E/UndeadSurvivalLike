@@ -1,8 +1,10 @@
 ﻿// UndeadSurvival.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
 
+#include "pch.h"
 #include "framework.h"
 #include "UndeadSurvival.h"
+#include "GameModule.h"
 
 #define MAX_LOADSTRING 100
 
@@ -10,6 +12,7 @@
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+HWND g_hWnd;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -38,18 +41,30 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
+    GameModule game;
+    game.Init(g_hWnd);
+
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_UNDEADSURVIVAL));
 
-    MSG msg;
+    MSG msg{};
+    uint64 prevTick{ 0 };
 
     // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (msg.message != WM_QUIT)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if(PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+        else
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            uint64 now = GetTickCount64();
+            game.Update();
+            game.Render();
+            prevTick = now;
         }
+        
     }
 
     return (int) msg.wParam;
@@ -64,7 +79,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 //
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
-    WNDCLASSEXW wcex;
+    WNDCLASSEXW wcex{};
 
     wcex.cbSize = sizeof(WNDCLASSEX);
 
@@ -99,6 +114,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+
+   // hwnd 전역변수에 저장
+   g_hWnd = hWnd;
 
    if (!hWnd)
    {
