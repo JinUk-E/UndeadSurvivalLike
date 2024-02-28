@@ -12,8 +12,8 @@ public:
 	Tilemap();
 	virtual ~Tilemap();
 
-	virtual void Load(const std::string& path) override;
-	virtual void Save(const std::string& path) override;
+	virtual void Load(const std::wstring& path) override;
+	virtual void Save(const std::wstring& path) override;
 
 	PosInt GetMapSize() { return _mapSize; }
 	int32 GetTileSize() { return _tileSize; }

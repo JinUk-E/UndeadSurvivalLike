@@ -35,6 +35,27 @@
     <Filter Include="소스 코드\99.Headers\OriginHeader">
       <UniqueIdentifier>{3ba71099-86a2-444e-a753-42edc6318186}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 코드\03.Objects\Game">
+      <UniqueIdentifier>{343d0a4c-9a23-464b-b62a-caa8916117bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\03.Objects\Unreal">
+      <UniqueIdentifier>{69573821-4e00-423b-9baf-e7eaa39a5a11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\02.Scene\Game">
+      <UniqueIdentifier>{071e60fa-f923-48b3-b65c-6e6bdac6f343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\04.Resources\Paper2D">
+      <UniqueIdentifier>{9d40a99b-593d-4617-a636-451eb7c73958}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\04.Resources\Sound">
+      <UniqueIdentifier>{dd2c40c7-0452-4c9a-a04d-e90bb6b7af12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\05.Component\Camera">
+      <UniqueIdentifier>{f0125075-78c2-47a7-8b09-f3bcf2d39389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 코드\05.Component\Collision">
+      <UniqueIdentifier>{368d1b74-5f28-41e9-9d1b-f3f8f4c0e47d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -88,6 +109,69 @@
     <ClInclude Include="TimeManager.h">
       <Filter>소스 코드\01.Managers</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>소스 코드\03.Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>소스 코드\03.Objects\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 코드\02.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceBase.h">
+      <Filter>소스 코드\04.Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Flipbook.h">
+      <Filter>소스 코드\04.Resources\Paper2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>소스 코드\04.Resources\Paper2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>소스 코드\04.Resources\Paper2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilemap.h">
+      <Filter>소스 코드\04.Resources\Paper2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>소스 코드\04.Resources\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>소스 코드\05.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>소스 코드\05.Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>소스 코드\05.Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>소스 코드\05.Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereCollider.h">
+      <Filter>소스 코드\05.Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>소스 코드\06.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>소스 코드\06.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>소스 코드\06.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="FlipbookActor.h">
+      <Filter>소스 코드\03.Objects\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteActor.h">
+      <Filter>소스 코드\03.Objects\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapActor.h">
+      <Filter>소스 코드\03.Objects\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 코드\03.Objects\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="UndeadSurvival.rc">
@@ -132,6 +216,69 @@
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
       <Filter>소스 코드\01.Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>소스 코드\03.Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>소스 코드\03.Objects\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 코드\02.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceBase.cpp">
+      <Filter>소스 코드\04.Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Flipbook.cpp">
+      <Filter>소스 코드\04.Resources\Paper2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>소스 코드\04.Resources\Paper2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>소스 코드\04.Resources\Paper2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilemap.cpp">
+      <Filter>소스 코드\04.Resources\Paper2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>소스 코드\04.Resources\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>소스 코드\05.Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>소스 코드\05.Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>소스 코드\05.Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>소스 코드\05.Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCollider.cpp">
+      <Filter>소스 코드\05.Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>소스 코드\06.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>소스 코드\06.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>소스 코드\06.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="FlipbookActor.cpp">
+      <Filter>소스 코드\03.Objects\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteActor.cpp">
+      <Filter>소스 코드\03.Objects\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="TilemapActor.cpp">
+      <Filter>소스 코드\03.Objects\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 코드\03.Objects\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -19,15 +19,15 @@ public:
 	bool IsKeyUp(KeyType keyType) { return GetState(keyType) == KeyState::Up; }
 
 	// mouse position
-	POINT GetMousePos() { return mMousePos; }
+	POINT GetMousePos() { return m_MousePos; }
 
 
 private:
-	KeyState GetState(KeyType keyType) { return mKeyState[static_cast<int32>(keyType)]; }
+	KeyState GetState(KeyType keyType) { return m_KeyState[static_cast<int32>(keyType)]; }
 
 private:
-	HWND mHwnd{};
-	vector<KeyState> mKeyState{};
-	POINT mMousePos{};
+	HWND m_hwnd{};
+	vector<KeyState> m_KeyState{};
+	POINT m_MousePos{};
 };
 

@@ -27,6 +27,8 @@ public:
 	Flipbook* GetFlipbook(const wstring& name) { return m_flipbooks[name]; }
 	Flipbook* CreateFlipbook(const wstring& name);
 
+	Tilemap* GetTilemap(const wstring& key) { return m_tilemaps[key]; }
+	Tilemap* CreateTilemap(const wstring& key);
 	void SaveTilemap(const wstring& name, const wstring& path);
 	Tilemap* LoadTilemap(const wstring& name, const wstring& path);
 
