@@ -2,7 +2,6 @@
 #include "SceneManager.h"
 #include "MenuScene.h"
 #include "InGameScene.h"
-#include "LoadingScene.h"
 
 void SceneManager::Init()
 {
@@ -39,9 +38,6 @@ void SceneManager::ChangeScene(SceneType sceneType)
 			break;
 		case SceneType::Game:
 			newScene = new InGameScene();
-			break;
-		case SceneType::Loading:
-			newScene = new LoadingScene();
 			break;
 	}
 	Clear();

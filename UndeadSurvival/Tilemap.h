@@ -21,8 +21,8 @@ public:
 	Tile* GetTileAt(PosInt pos);
 	vector<vector<Tile>>& GetTiles() { return _tiles; }
 
-	void SetMapSize(PosInt size) { _mapSize = size; }
-	void SetTileSize(int32 size) { _tileSize = size; }
+	void SetMapSize(PosInt size);
+	void SetTileSize(int32 size);
 
 private:
 	PosInt _mapSize{};

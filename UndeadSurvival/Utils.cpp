@@ -1,28 +1,28 @@
 #include "pch.h"
 #include "Utils.h"
 
-void Utils::DrawText(HDC hdc, Postion pos, const wstring& str)
+void Utils::DrawText(HDC hdc, Position pos, const wstring& str)
 {TextOut(hdc, static_cast<int32>(pos.X), static_cast<int32>(pos.Y), str.c_str(), static_cast<int32>(str.size()));}
 
-void Utils::DrawRect(HDC hdc, Postion pos, int32 width, int32 height)
+void Utils::DrawRect(HDC hdc, Position pos, int32 width, int32 height)
 {
 	int32 halfWidth = width*.5;
 	int32 halfHeight = height*.5;
 	Rectangle(hdc, static_cast<int32>(pos.X - halfWidth), static_cast<int32>(pos.Y - halfHeight), static_cast<int32>(pos.X + halfWidth), static_cast<int32>(pos.Y + halfHeight));
 }
 
-void Utils::DrawCircle(HDC hdc, Postion pos, int32 radius)
+void Utils::DrawCircle(HDC hdc, Position pos, int32 radius)
 {
 	Ellipse(hdc, static_cast<int32>(pos.X - radius), static_cast<int32>(pos.Y - radius), static_cast<int32>(pos.X + radius), static_cast<int32>(pos.Y + radius));
 }
 
-void Utils::DrawLine(HDC hdc, Postion start, Postion end)
+void Utils::DrawLine(HDC hdc, Position start, Position end)
 {
 	MoveToEx(hdc, static_cast<int32>(start.X), static_cast<int32>(start.Y), nullptr);
 	LineTo(hdc, static_cast<int32>(end.X), static_cast<int32>(end.Y));
 }
 
-void Utils::DrawLineColored(HDC hdc, Postion start, Postion end, COLORREF color)
+void Utils::DrawLineColored(HDC hdc, Position start, Position end, COLORREF color)
 {
 	HPEN hPen = CreatePen(PS_SOLID, 1, color);
 	HPEN hOldPen = static_cast<HPEN>(SelectObject(hdc, hPen));

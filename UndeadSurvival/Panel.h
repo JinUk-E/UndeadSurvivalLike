@@ -12,7 +12,7 @@ public:
 	virtual void Render(HDC hdc);
 
 	void AddChild(UI* child);
-	void RemoveChild(UI* child);
+	bool RemoveChild(UI* child);
 
 private:
 	vector<UI*> _children;

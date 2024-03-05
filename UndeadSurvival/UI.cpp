@@ -5,11 +5,12 @@
 UI::UI(){}
 UI::~UI(){}
 
-void UI::Begin(){}
+void UI::BeginPlay(){}
 void UI::Tick() {}
 void UI::Render(HDC hdc) {}
 
-RECT UI::GetRect() {
+RECT UI::GetRect() 
+{
 	RECT rect = 
 	{
 		m_pos.X - m_size.X * .5,

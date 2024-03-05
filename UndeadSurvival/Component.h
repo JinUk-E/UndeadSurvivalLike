@@ -5,17 +5,17 @@ class Actor;
 class Component
 {
 public:
-	Component(Actor* owner);
+	Component();
 	virtual ~Component();
 
 	virtual void BeginPlay() {}
 	virtual void TickComponent() {}
 	virtual void Render(HDC hdc) {}
 
-	void SetOwner(Actor* owner) { mOwner = owner; }
-	Actor* GetOwner() { return mOwner; }
+	void SetOwner(Actor* owner) { m_Owner = owner; }
+	Actor* GetOwner() { return m_Owner; }
 
 protected:
-	Actor* mOwner;
+	Actor* m_Owner;
 };
 

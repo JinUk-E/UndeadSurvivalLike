@@ -14,7 +14,7 @@ private:
 	virtual void Load(const wstring& path) {}
 	virtual void Save(const wstring& path) {}
 
-	LPDIRECTSOUNDBUFFER m_pBuffer{nullptr};
-	DSBUFFERDESC m_dsbd{};
+	LPDIRECTSOUNDBUFFER m_soundBuffer{nullptr};
+	DSBUFFERDESC m_bufferDesc{};
 };
 

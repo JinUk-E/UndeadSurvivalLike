@@ -1,6 +1,7 @@
 #pragma once
 
 class ResourceBase;
+class LineMesh;
 class Texture;
 class Sprite;
 class Flipbook;
@@ -35,6 +36,7 @@ public:
 	Sound* GetSound(const wstring& name) { return m_sounds[name]; }
 	Sound* LoadSound(const wstring& name, const wstring& path);
 
+	const LineMesh* GetLineMesh(wstring key);
 private:
 	HWND m_hwnd{};
 	fs::path m_resourcePath{};
@@ -44,5 +46,6 @@ private:
 	unordered_map<wstring, Flipbook*> m_flipbooks{};
 	unordered_map<wstring, Tilemap*> m_tilemaps{};
 	unordered_map<wstring, Sound*> m_sounds{};
+	unordered_map<wstring, LineMesh*> _lineMeshes;
 };
 

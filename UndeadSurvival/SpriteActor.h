@@ -14,9 +14,9 @@ public:
 	virtual void Tick() override;
 	virtual void Render(HDC hdc) override;
 
-	void SetSprite(Sprite* sprite) { mSprite = sprite; }
+	void SetSprite(Sprite* sprite) { m_Sprite = sprite; }
 
 protected:
-	Sprite* mSprite{nullptr};
+	Sprite* m_Sprite{nullptr};
 };
 

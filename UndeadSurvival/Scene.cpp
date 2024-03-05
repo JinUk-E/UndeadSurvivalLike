@@ -29,7 +29,7 @@ void Scene::Init()
 			actor->BeginPlay();
 
 	for (UI* ui : _uis)
-		ui->Begin();
+		ui->BeginPlay();
 }
 
 void Scene::Update()

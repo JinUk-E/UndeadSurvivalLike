@@ -56,6 +56,9 @@
     <Filter Include="소스 코드\05.Component\Collision">
       <UniqueIdentifier>{368d1b74-5f28-41e9-9d1b-f3f8f4c0e47d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 코드\04.Resources\Game">
+      <UniqueIdentifier>{2a2f6a46-5006-4551-87ee-1865f843b653}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -175,11 +178,11 @@
     <ClInclude Include="InGameScene.h">
       <Filter>소스 코드\02.Scene\Game</Filter>
     </ClInclude>
-    <ClInclude Include="LoadingScene.h">
-      <Filter>소스 코드\02.Scene\Game</Filter>
-    </ClInclude>
     <ClInclude Include="MenuScene.h">
       <Filter>소스 코드\02.Scene\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="LineMesh.h">
+      <Filter>소스 코드\04.Resources\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -292,11 +295,11 @@
     <ClCompile Include="InGameScene.cpp">
       <Filter>소스 코드\02.Scene\Game</Filter>
     </ClCompile>
-    <ClCompile Include="LoadingScene.cpp">
-      <Filter>소스 코드\02.Scene\Game</Filter>
-    </ClCompile>
     <ClCompile Include="MenuScene.cpp">
       <Filter>소스 코드\02.Scene\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="LineMesh.cpp">
+      <Filter>소스 코드\04.Resources\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

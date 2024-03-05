@@ -131,3 +131,11 @@ Sound* ResourceManager::LoadSound(const wstring& name, const wstring& path)
 
 
 
+const LineMesh* ResourceManager::GetLineMesh(wstring key)
+{
+	auto findIt = _lineMeshes.find(key);
+	if (findIt == _lineMeshes.end())
+		return nullptr;
+
+	return findIt->second;
+}
