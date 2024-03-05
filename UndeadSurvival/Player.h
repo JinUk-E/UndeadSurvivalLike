@@ -29,6 +29,7 @@ private:
 	bool HasReachedDestination();
 	bool CanGo(PosInt cellPos);
 	void SetCellPos(PosInt cellPos, bool teleport = false);
+	void InputMachine(DIRECTION dir);
 
 	Flipbook* m_idleFlipbook[4]{}; 
 	Flipbook* m_moveFlipbook[4]{}; 
@@ -39,5 +40,6 @@ private:
 	DIRECTION m_direction{ DIRECTION::DIRECTION_DOWN};
 	PlayerState m_state{ PlayerState::Idle};
 	bool _keyPressed{ false };
+	PosInt deltaXY[4] = { {0, -1}, {0, 1}, {-1, 0}, {1, 0} };
 };
 

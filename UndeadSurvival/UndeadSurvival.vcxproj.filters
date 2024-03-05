@@ -172,6 +172,15 @@
     <ClInclude Include="Player.h">
       <Filter>소스 코드\03.Objects\Game</Filter>
     </ClInclude>
+    <ClInclude Include="InGameScene.h">
+      <Filter>소스 코드\02.Scene\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingScene.h">
+      <Filter>소스 코드\02.Scene\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>소스 코드\02.Scene\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="UndeadSurvival.rc">
@@ -279,6 +288,15 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>소스 코드\03.Objects\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameScene.cpp">
+      <Filter>소스 코드\02.Scene\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingScene.cpp">
+      <Filter>소스 코드\02.Scene\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>소스 코드\02.Scene\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

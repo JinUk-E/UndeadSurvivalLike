@@ -9,8 +9,8 @@
 GameModule::GameModule(){}
 GameModule::~GameModule()
 {
-	/*GET_SINGLE(SceneManager)->Clear();
-	GET_SINGLE(ResourceManager)->Clear();*/
+	GET_SINGLE(SceneManager)->Clear();
+	GET_SINGLE(ResourceManager)->Clear();
 
 	_CrtDumpMemoryLeaks();
 }
