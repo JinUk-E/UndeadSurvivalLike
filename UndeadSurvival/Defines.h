@@ -1,7 +1,7 @@
 #pragma once
 
 // singletons setting
-#define CREATE_SINGLETONS(classname)						\
+#define CREATE_SINGLETONS(classname)				\
 	private:										\
 		classname() {}								\
 	public:											\

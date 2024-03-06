@@ -32,8 +32,7 @@ void MenuScene::Render(HDC hdc)
 	::Rectangle(hdc, 0, 0, GwinSizeX, GwinSizeY);
 
 	const LineMesh* mesh = GET_SINGLE(ResourceManager)->GetLineMesh(L"Menu");
-	if (mesh)
-		mesh->Render(hdc, Position{ 0, 0 });
+	if (mesh) mesh->Render(hdc, Position{ 0, 0 });
 
 	HFONT myFont = ::CreateFont(
 		30						// ≥Ù¿Ã

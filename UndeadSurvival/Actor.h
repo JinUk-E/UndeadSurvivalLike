@@ -15,7 +15,7 @@ public:
 	void SetPos(Position pos) { _pos = pos; }
 	Position GetPos() { return _pos; }
 
-	void setLayerType(LAYER_TYPE layerType) { _layerType = layerType; }
+	void SetLayerType(LAYER_TYPE layerType) { _layerType = layerType; }
 	LAYER_TYPE getLayerType() { return _layerType; }
 
 	void ADDComponent(Component* component);

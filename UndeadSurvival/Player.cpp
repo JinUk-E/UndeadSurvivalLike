@@ -8,23 +8,24 @@
 #include "BoxCollider.h"
 #include "SceneManager.h"
 #include "InGameScene.h"
+#include <iostream>
 
 Player::Player()
 {
-	m_idleFlipbook[DIRECTION_UP] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerIdleUp");
-	m_idleFlipbook[DIRECTION_DOWN] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerIdleDown");
-	m_idleFlipbook[DIRECTION_LEFT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerIdleLeft");
-	m_idleFlipbook[DIRECTION_RIGHT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerIdleRight");
+	m_idleFlipbook[DIRECTION_UP] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_IdleUp");
+	m_idleFlipbook[DIRECTION_DOWN] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_IdleDown");
+	m_idleFlipbook[DIRECTION_LEFT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_IdleLeft");
+	m_idleFlipbook[DIRECTION_RIGHT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_IdleRight");
 
-	m_moveFlipbook[DIRECTION_UP] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerMoveUp");
-	m_moveFlipbook[DIRECTION_DOWN] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerMoveDown");
-	m_moveFlipbook[DIRECTION_LEFT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerMoveLeft");
-	m_moveFlipbook[DIRECTION_RIGHT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerMoveRight");
+	m_moveFlipbook[DIRECTION_UP] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_MoveUp");
+	m_moveFlipbook[DIRECTION_DOWN] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_MoveDown");
+	m_moveFlipbook[DIRECTION_LEFT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_MoveLeft");
+	m_moveFlipbook[DIRECTION_RIGHT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_MoveRight");
 
-	m_skillFlipbook[DIRECTION_UP] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerSkillUp");
-	m_skillFlipbook[DIRECTION_DOWN] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerSkillDown");
-	m_skillFlipbook[DIRECTION_LEFT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerSkillLeft");
-	m_skillFlipbook[DIRECTION_RIGHT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"PlayerSkillRight");
+	m_skillFlipbook[DIRECTION_UP] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_AttackUp");
+	m_skillFlipbook[DIRECTION_DOWN] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_AttackDown");
+	m_skillFlipbook[DIRECTION_LEFT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_AttackLeft");
+	m_skillFlipbook[DIRECTION_RIGHT] = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_AttackRight");
 
 	CameraComponent* camera = new CameraComponent;
 	ADDComponent(camera);
@@ -72,14 +73,17 @@ void Player::TickIdle()
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
 	_keyPressed = true;
+	PosInt deltaXY[4] = { {0, -1}, {0, 1}, {-1, 0}, {1, 0} };
 
-	if (GET_SINGLE(InputManager)->IsKeyDown(KeyType::D)) InputMachine(DIRECTION_LEFT);
-	else if (GET_SINGLE(InputManager)->IsKeyDown(KeyType::A)) InputMachine(DIRECTION_RIGHT);
-	else if (GET_SINGLE(InputManager)->IsKeyDown(KeyType::W)) InputMachine(DIRECTION_UP);
-	else if (GET_SINGLE(InputManager)->IsKeyDown(KeyType::S)) InputMachine(DIRECTION_DOWN);
+	if (GET_SINGLE(InputManager)->IsKeyDown(KeyType::W)) InputMachine(DIRECTION_UP, deltaXY[DIRECTION_UP]);
+	else if (GET_SINGLE(InputManager)->IsKeyDown(KeyType::S)) InputMachine(DIRECTION_DOWN, deltaXY[DIRECTION_DOWN]);
+	else if (GET_SINGLE(InputManager)->IsKeyDown(KeyType::D)) InputMachine(DIRECTION_RIGHT, deltaXY[DIRECTION_RIGHT]);
+	else if (GET_SINGLE(InputManager)->IsKeyDown(KeyType::A)) InputMachine(DIRECTION_LEFT, deltaXY[DIRECTION_LEFT]);
 	else
 	{
 		_keyPressed = false;
+		// 디버깅 출력
+		std::cout << "Idle" << std::endl;
 		if (m_state == PlayerState::Idle) UpdateAnimation();
 	}
 }
@@ -94,19 +98,38 @@ void Player::TickMove()
 	{
 		SetState(PlayerState::Idle);
 		_pos = _destPos;
-		return;
 	}
-
-	_pos.X = (m_direction == DIRECTION_RIGHT) ? _pos.X + (200 * deltaTime) : 
-		(m_direction == DIRECTION_RIGHT) ? _pos.X - (200 * deltaTime) : _pos.X;
+	else
+	{
+	/*_pos.X = (m_direction == DIRECTION_RIGHT) ? _pos.X - (200 * deltaTime) : 
+		(m_direction == DIRECTION_LEFT) ? _pos.X + (200 * deltaTime) : _destPos.X;
 
 	_pos.Y = (m_direction == DIRECTION_DOWN) ? _pos.Y + (200 * deltaTime) :
-		(m_direction == DIRECTION_UP) ? _pos.Y - (200 * deltaTime) : _pos.Y;
+		(m_direction == DIRECTION_UP) ? _pos.Y - (200 * deltaTime) : _destPos.Y;*/
+		switch (m_direction)
+		{
+		case DIRECTION_UP:
+			_pos.Y -= 200 * deltaTime;
+			break;
+		case DIRECTION_DOWN:
+			_pos.Y += 200 * deltaTime;
+			break;
+		case DIRECTION_LEFT:
+			_pos.X -= 200 * deltaTime;
+			break;
+		case DIRECTION_RIGHT:
+			_pos.X += 200 * deltaTime;
+			break;
+		}
+	}
 }
 
 void Player::TickSkill()
 {
-
+	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
+	// 디버깅 출력
+	std::cout << "Skill" << std::endl;
+	if (m_state == PlayerState::Skill) UpdateAnimation();
 }
 
 void Player::SetState(PlayerState state)
@@ -168,11 +191,11 @@ void Player::SetCellPos(PosInt cellPos, bool teleport)
 }
 
 
-void Player::InputMachine(DIRECTION dir)
+void Player::InputMachine(DIRECTION dir, PosInt deltaXY)
 {
 	SetDirection(dir);
 
-	PosInt nextPos = m_cellPos + deltaXY[dir];
+	PosInt nextPos = m_cellPos + deltaXY;
 	if (CanGo(nextPos))
 	{
 		SetCellPos(nextPos);
