@@ -29,7 +29,7 @@ void GameModule::Init(HWND hwnd)
 
 	GET_SINGLE(TimeManager)->Init();
 	GET_SINGLE(SceneManager)->Init();
-	GET_SINGLE(ResourceManager)->Init(hwnd, fs::path(L""));
+	GET_SINGLE(ResourceManager)->Init(hwnd, fs::path(L""));// L"../Resources"
 	GET_SINGLE(InputManager)->Init(hwnd);
 	GET_SINGLE(SoundManager)->Init(hwnd);
 
