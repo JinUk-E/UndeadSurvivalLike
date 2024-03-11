@@ -9,6 +9,7 @@
 #include "Actor.h"
 #include "SpriteActor.h"
 #include "Player.h"
+#include "Enemy.h"
 #include "Flipbook.h"
 #include "BoxCollider.h"
 #include "SphereCollider.h"
@@ -131,8 +132,16 @@ void InGameScene::Init()
 
 	{
 		Player* player = new Player();
+		m_player = player;
 		AddActor(player);
 	}
+	
+	{
+		Enemy* enemy = new Enemy();
+		enemy->SetPlayer(m_player);	
+		AddActor(enemy);
+	}
+
 
 	{
 		TilemapActor* actor = new TilemapActor();
@@ -202,4 +211,11 @@ Position InGameScene::ConvertPos(PosInt cellPos)
 	ret.Y = pos.Y + cellPos.Y * size + (size * .5f);
 
 	return ret;
+}
+
+PosInt InGameScene::GetPlayerPos() const
+{
+	if(!m_player) return PosInt{0 , 0};
+
+	return m_player->GetCellPos();
 }

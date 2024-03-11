@@ -184,6 +184,9 @@
     <ClInclude Include="LineMesh.h">
       <Filter>소스 코드\04.Resources\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>소스 코드\03.Objects\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="UndeadSurvival.rc">
@@ -300,6 +303,9 @@
     </ClCompile>
     <ClCompile Include="LineMesh.cpp">
       <Filter>소스 코드\04.Resources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>소스 코드\03.Objects\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

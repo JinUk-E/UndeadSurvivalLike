@@ -15,55 +15,49 @@ Tilemap::~Tilemap()
 
 void Tilemap::Load(const wstring& path)
 {
-	// C++ 스타일
+	wifstream ifs;
+
+	ifs.open(path);
+
+	ifs >> _mapSize.X >> _mapSize.Y;
+
+	SetMapSize(_mapSize);
+
+	for (int32 y = 0; y < _mapSize.Y; y++)
 	{
-		wifstream ifs;
+		wstring line;
+		ifs >> line;
 
-		ifs.open(path);
-
-		ifs >> _mapSize.X >> _mapSize.Y;
-
-		SetMapSize(_mapSize);
-
-		for (int32 y = 0; y < _mapSize.Y; y++)
+		for (int32 x = 0; x < _mapSize.X; x++)
 		{
-			wstring line;
-			ifs >> line;
-
-			for (int32 x = 0; x < _mapSize.X; x++)
-			{
-				_tiles[y][x].value = line[x] - L'0';
-			}
+			_tiles[y][x].value = line[x] - L'0';
 		}
-
-		ifs.close();
 	}
+
+	ifs.close();
 
 }
 
 void Tilemap::Save(const wstring& path)
 {
-	// C++ 스타일
+	wofstream ofs;
+
+	ofs.open(path);
+
+	ofs << _mapSize.X << endl;
+	ofs << _mapSize.Y << endl;
+
+	for (int32 y = 0; y < _mapSize.Y; y++)
 	{
-		wofstream ofs;
-
-		ofs.open(path);
-
-		ofs << _mapSize.X << endl;
-		ofs << _mapSize.Y << endl;
-
-		for (int32 y = 0; y < _mapSize.Y; y++)
+		for (int32 x = 0; x < _mapSize.X; x++)
 		{
-			for (int32 x = 0; x < _mapSize.X; x++)
-			{
-				ofs << _tiles[y][x].value;
-			}
-
-			ofs << endl;
+			ofs << _tiles[y][x].value;
 		}
 
-		ofs.close();
+		ofs << endl;
 	}
+
+	ofs.close();
 }
 
 Tile* Tilemap::GetTileAt(PosInt pos)

@@ -22,14 +22,15 @@ void TilemapActor::BeginPlay()
 void TilemapActor::Tick()
 {
 	Super::Tick();
+	TickPicking();
 }
 
 void TilemapActor::Render(HDC hdc)
 {
 	Super::Render(hdc);
 
-	if(!mTilemap || !mShowDebug)
-		return;
+	if (!mTilemap) return;
+	if (!mShowDebug) return;
 
 	// Draw tilemap
 	const PosInt mapSize = mTilemap->GetMapSize();

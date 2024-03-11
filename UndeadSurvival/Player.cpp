@@ -8,7 +8,6 @@
 #include "BoxCollider.h"
 #include "SceneManager.h"
 #include "InGameScene.h"
-#include <iostream>
 
 Player::Player()
 {
@@ -82,8 +81,6 @@ void Player::TickIdle()
 	else
 	{
 		_keyPressed = false;
-		// 디버깅 출력
-		std::cout << "Idle" << std::endl;
 		if (m_state == PlayerState::Idle) UpdateAnimation();
 	}
 }
@@ -127,8 +124,6 @@ void Player::TickMove()
 void Player::TickSkill()
 {
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
-	// 디버깅 출력
-	std::cout << "Skill" << std::endl;
 	if (m_state == PlayerState::Skill) UpdateAnimation();
 }
 
@@ -202,4 +197,3 @@ void Player::InputMachine(DIRECTION dir, PosInt deltaXY)
 		SetState(PlayerState::Move);
 	}
 }
-

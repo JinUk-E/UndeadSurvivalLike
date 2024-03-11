@@ -4,18 +4,19 @@
 class Flipbook;
 class Collider;
 class BoxColliider;
+class Player;
 
-class Player : public FlipbookActor
+class Enemy : public FlipbookActor
 {
 	using Super = FlipbookActor;
 public:
-	Player();
-	virtual ~Player() override;
+	Enemy();
+	virtual ~Enemy() override;
 
 	virtual void BeginPlay() override;
 	virtual void Tick() override;
 	virtual void Render(HDC hdc) override;
-	PosInt GetCellPos() const { return m_cellPos; }
+	void SetPlayer(Player* player) { m_player = player; }
 
 private:
 	virtual void TickIdle();
@@ -30,16 +31,17 @@ private:
 	bool HasReachedDestination();
 	bool CanGo(PosInt cellPos);
 	void SetCellPos(PosInt cellPos, bool teleport = false);
-	void InputMachine(DIRECTION dir, PosInt deltaXY);
+	void GetDirectionToPlayer();
 
-	Flipbook* m_idleFlipbook[4]{}; 
-	Flipbook* m_moveFlipbook[4]{}; 
+	Flipbook* m_idleFlipbook[4]{};
+	Flipbook* m_moveFlipbook[4]{};
 	Flipbook* m_skillFlipbook[4]{};
 
 	PosInt m_cellPos{};
 	Position m_speed{};
-	DIRECTION m_direction{ DIRECTION::DIRECTION_DOWN};
-	PlayerState m_state{ PlayerState::Idle};
+	DIRECTION m_direction{ DIRECTION::DIRECTION_DOWN };
+	PlayerState m_state{ PlayerState::Idle };
+	Player* m_player = nullptr;
 	bool _keyPressed{ false };
 };
 

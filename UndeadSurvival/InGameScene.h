@@ -4,10 +4,13 @@
 class Actor;
 class GameObject;
 class UI;
+class Player;
 
 class InGameScene : public Scene
 {
 	using Super = Scene;
+private:
+	Player* m_player{ nullptr };
 public:
 	InGameScene();
 	virtual ~InGameScene() override;
@@ -18,7 +21,7 @@ public:
 
 	bool CanGo(PosInt cellPos);
 	Position ConvertPos(PosInt cellPos);
-
+	PosInt GetPlayerPos() const;
 	class TilemapActor* _tilemapActor = nullptr;
 };
 

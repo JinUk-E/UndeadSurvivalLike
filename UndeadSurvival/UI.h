@@ -17,7 +17,7 @@ public:
 
 protected:
 	Position m_pos{400,300};
-	PosInt m_size{100,100};
+	PosInt m_size{150,150};
 
 };
 
