@@ -52,4 +52,3 @@ void Utils::ReadBmp(const wstring& path)
 	char* buffer = static_cast<char*>(malloc(imgSize));
 	if (buffer != 0) fread_s(buffer, imgSize, imgSize, 1, filepath);
 }
-

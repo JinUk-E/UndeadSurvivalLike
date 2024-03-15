@@ -35,7 +35,7 @@ void Enemy::BeginPlay()
 	SetState(PlayerState::Move);
 	SetState(PlayerState::Idle);
 
-	SetCellPos({ 5, 5 }, true);
+	//SetCellPos({ 5, 5 }, true);
 }
 
 void Enemy::Tick()

@@ -17,6 +17,7 @@ public:
 	virtual void Tick() override;
 	virtual void Render(HDC hdc) override;
 	void SetPlayer(Player* player) { m_player = player; }
+	void SetCellPos(PosInt cellPos, bool teleport = false);
 
 private:
 	virtual void TickIdle();
@@ -30,7 +31,7 @@ private:
 
 	bool HasReachedDestination();
 	bool CanGo(PosInt cellPos);
-	void SetCellPos(PosInt cellPos, bool teleport = false);
+	
 	void GetDirectionToPlayer();
 
 	Flipbook* m_idleFlipbook[4]{};
